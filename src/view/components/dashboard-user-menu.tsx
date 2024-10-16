@@ -12,6 +12,7 @@ import {
 interface DashboardMenuItem {
   icon: React.ReactNode;
   text: string;
+  action?: () => void
 }
 
 interface DashboardUserMenuProps {
@@ -59,6 +60,7 @@ export function DashboardUserMenu({
             <DropdownMenuItem
               key={index}
               className="flex gap-2 font-nauman-demi-bold"
+              onClick={item.action}
             >
               {item.icon}
               <span className="font-nauman-regular">{item.text}</span>
