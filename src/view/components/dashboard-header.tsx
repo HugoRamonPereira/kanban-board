@@ -2,8 +2,11 @@ import { AlarmClock, Bell, CalendarDays, Headphones, LockKeyhole, LogOut, MapPin
 import { IconButton } from "./icon-button";
 import { Search } from "./search";
 import { DashboardUserMenu } from "./dashboard-user-menu";
+import useLogout from "../../hooks/use-logout";
 
 export function DashboardHeader() {
+  const logout = useLogout();
+
   const iconButtonNotificationItems = [
     { icon: <AlarmClock size={20} strokeWidth={1.3} />, text: 'Alarm'},
     { icon: <CalendarDays size={20} strokeWidth={1.3} />, text: 'Calendar'},
@@ -18,7 +21,7 @@ export function DashboardHeader() {
 
   const UserMenuItems = [
     { icon: <User size={20} strokeWidth={1.3} />, text: 'Profile'},
-    { icon: <LogOut size={20} strokeWidth={1.3} />, text: 'Sign out'},
+    { icon: <LogOut size={20} strokeWidth={1.3} />, text: 'Sign out', action: logout},
   ]
 
   return (
